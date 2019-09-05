@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var a = {};\nvar b = a === null || a === void 0 ? void 0 : a.d;\n\n//# sourceURL=webpack:///./index.js?");
+eval("function square(x) {\n  return x * x;\n}\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 

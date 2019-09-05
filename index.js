@@ -7,5 +7,9 @@
 //     return n * n;
 // }
 
-let a = {};
-let b= a?.d;
+// let a = {};
+//let b= a?.[p];
+
+function square(n) {
+    return n * n;
+}

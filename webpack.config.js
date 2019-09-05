@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const plugin = require('./plugin');
+const plugin2 = require('./plugin2');
+const plugin3 = require('./plugin3');
+const plugin4 = require('./plugin4');
 
 module.exports = {
     context: path.resolve(__dirname),
@@ -36,7 +39,8 @@ module.exports = {
                                     "useESModules": false
                                 }],
                                 //'@babel/plugin-proposal-optional-chaining',
-                                plugin
+                                //plugin,
+                                plugin4
                             ],
                             comments: false
                         },

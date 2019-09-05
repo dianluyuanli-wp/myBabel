@@ -51,7 +51,7 @@ module.exports = function(babel){
                     const {
                       node
                     } = optionalPath;
-                    console.log(node, 'node')
+                    //console.log(node, 'node')
           
                     if (node.optional) {
                       optionals.push(node);
@@ -73,6 +73,8 @@ module.exports = function(babel){
                   })) {
                     replacementPath = parentPath;
                   }
+                  // console.log(replacementPath, 'replacementPath');
+                  // console.log(path, 'path');
           
                   //  for循环所有的可选表达式节点
                   for (let i = optionals.length - 1; i >= 0; i--) {
@@ -92,8 +94,8 @@ module.exports = function(babel){
                       check = ref = chain;
                     } else {
                       ref = scope.maybeGenerateMemoised(chain);
-                      console.log(chain, 'chain');
-                      console.log(ref, 'ref');
+                      // console.log(chain, 'chain');
+                      // console.log(ref, 'ref');
           
                       if (ref) {
                         check = _core().types.assignmentExpression("=", _core().types.cloneNode(ref), chain);
@@ -124,7 +126,9 @@ module.exports = function(babel){
                     }
           
                     replacementPath.replaceWith(_core().types.conditionalExpression(loose ? _core().types.binaryExpression("==", _core().types.cloneNode(check), _core().types.nullLiteral()) : _core().types.logicalExpression("||", _core().types.binaryExpression("===", _core().types.cloneNode(check), _core().types.nullLiteral()), _core().types.binaryExpression("===", _core().types.cloneNode(ref), scope.buildUndefinedNode())), scope.buildUndefinedNode(), replacementPath.node));
-                    replacementPath = replacementPath.get("alternate");
+                    console.log(replacementPath.get("alternate"), 'test')
+                    //   replacementPath.get("alternate")
+                    //replacementPath = replacementPath.get("alternate");
                   }
                   //console.log(optionals);
             }
